@@ -98,6 +98,9 @@ class GoogleResult:
         returns: bool
         """
 
+        # Just go ahead to download
+        return True
+
         dl = False
         if os.path.basename(self.primary_link).lower().endswith(".pdf"):
             dl = True

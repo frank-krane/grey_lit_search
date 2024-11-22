@@ -70,7 +70,7 @@ def save_pdf(search_num, link, base_dir="output", timeout=60):
     logger.info(f"attempting to download {fname}")
 
     try:
-        page = requests.get(link, headers=headers, timeout=60)
+        page = requests.get(link, allow_redirects=True, headers=headers, timeout=60)
         page.raise_for_status()
         with open(fname, "wb") as fid:
             fid.write(page.content)
