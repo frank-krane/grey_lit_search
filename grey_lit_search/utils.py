@@ -67,6 +67,8 @@ def save_pdf(search_num, link, base_dir="output", timeout=60):
     save_dir = os.path.join(base_dir, f"{str(search_num).zfill(3)}")
     os.makedirs(save_dir, exist_ok=True)
     fname = os.path.join(save_dir, os.path.basename(link))
+    if not fname.endswith('.pdf') and not fname.endswith('.PDF'):
+       fname = fname + '.pdf'
     logger.info(f"attempting to download {fname}")
 
     try:
